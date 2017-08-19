@@ -1,4 +1,9 @@
+.container {
+  @include xy-grid-container();
+}
 .site-header {
+  background-size: cover;
+  height: 100vh;
   background-image: url(../img/featured/small/home.jpg);
   @include breakpoint(medium) {
     background-image: url(../img/featured/medium/home.jpg);
@@ -6,6 +11,29 @@
   @include breakpoint(large) {
     background-image: url(../img/featured/large/home.jpg);
   }
-  background-size: cover;
-  height: 100vh;
+  .header-content {
+    .top-section {
+      @include xy-grid();
+      @include flex-align(center, top);
+      .logo {
+        @include xy-cell(6);
+        @include flex-align(center, middle);
+        @include breakpoint(medium) {
+          @include xy-cell(25%);
+        }
+        img {
+          @include flex-align;
+        }
+      }
+    }
+    .bottom-section {
+
+    }
+  }
+}
+.menus {
+  @include xy-cell();
+  @include breakpoint(medium) {
+    @include xy-cell(75%);
+  }
 }
